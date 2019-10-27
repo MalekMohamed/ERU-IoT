@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>ERU - Atmospheric Water Control</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="An IoT Project to control over Atmospheric Air Condenser" name="description"/>
+    <meta content="Malek Mohamed" name="author"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- App css -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/app.min.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body>
+
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- Topbar Start -->
+    <div class="navbar-custom">
+        <ul class="list-unstyled topnav-menu float-right mb-0">
+            <li class="dropdown notification-list">
+                <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
+                   href="#" role="button" aria-haspopup="false" aria-expanded="false">
+
+                    <span class="pro-user-name ml-1">
+                                Welcome <i class="mdi mdi-chevron-down"></i>
+                            </span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                    <!-- item-->
+                    <div class="dropdown-header noti-title">
+                        <h6 class="text-overflow m-0">Welcome !</h6>
+                    </div>
+
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="fe-user"></i>
+                        <span>My Account</span>
+                    </a>
+
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="fe-settings"></i>
+                        <span>Settings</span>
+                    </a>
+
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="fe-lock"></i>
+                        <span>Lock Screen</span>
+                    </a>
+
+                    <div class="dropdown-divider"></div>
+
+                    <!-- item-->
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                        <i class="fe-log-out"></i>
+                        <span>Logout</span>
+                    </a>
+
+                </div>
+            </li>
+        </ul>
+
+        <!-- LOGO -->
+        <div class="logo-box">
+            <a href="index.html" class="logo text-center">
+                        <span class="logo-lg">
+                            <span class="logo-lg-text-light">ERU</span>
+                        </span>
+                <span class="logo-sm">
+                            <span class="logo-sm-text-dark">ERU</span>
+                        </span>
+            </a>
+        </div>
+
+        <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+            <li>
+                <button class="button-menu-mobile waves-effect waves-light">
+                    <i class="fe-menu"></i>
+                </button>
+            </li>
+
+        </ul>
+    </div>
+    <!-- end Topbar -->
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="left-side-menu">
+
+        <div class="slimscroll-menu">
+
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+
+                <ul class="metismenu" id="side-menu">
+
+                    <li class="menu-title">Navigation</li>
+
+                    <li>
+                        <a href="./">
+                            <i class="fe-airplay"></i>
+                            <span> Dashboard </span>
+                        </a>
+
+                    </li>
+
+                    <li>
+                        <a href="./logs">
+                            <i class="fe-file-text"></i>
+                            <span> Logs </span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- End Sidebar -->
+
+            <div class="clearfix"></div>
+
+        </div>
+        <!-- Sidebar -left -->
+
+    </div>
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Dashboard</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="widget-rounded-circle card-box">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="avatar-lg rounded-circle bg-soft-info border-info border">
+                                        <i id="Fan-icon"
+                                           class="mdi mdi-fan mdi-spin font-22 avatar-title text-info"></i>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-right">
+                                        <h3 class="text-dark mt-1"><span class="Fan-Speed" id="Fan"
+                                                                         data-plugin="counterup"></span></h3>
+                                        <p class="text-muted mb-1 text-truncate">Inlet Fan Speed</p>
+                                    </div>
+                                </div>
+                            </div> <!-- end row-->
+                        </div> <!-- end widget-rounded-circle-->
+                    </div> <!-- end col-->
+
+                    <div class="col-md-6 col-xl-3">
+                        <div class="widget-rounded-circle card-box">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="avatar-lg rounded-circle bg-soft-success border-success border">
+                                        <i id="battery-icon"
+                                           class="mdi mdi-battery-charging-70 font-22 avatar-title text-success"></i>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="mt-3">
+                                        <h6 class="text-uppercase">Battery Remaining <span
+                                                class="float-right">79%</span></h6>
+                                        <div class="progress progress-sm m-0">
+                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="79"
+                                                 aria-valuemin="0" aria-valuemax="100" style="width: 79%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end row-->
+                        </div> <!-- end widget-rounded-circle-->
+                    </div> <!-- end col-->
+
+                    <div class="col-md-6 col-xl-3">
+                        <div class="widget-rounded-circle card-box">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="avatar-lg rounded-circle bg-soft-warning border-warning border">
+                                        <i class=" mdi mdi-oil-temperature font-22 avatar-title text-warning"></i>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-right">
+                                        <h3 class="text-dark mt-1"><span id="temperature" data-value="0"
+                                                                         data-plugin="counterup">0.58</span>°C</h3>
+                                        <p class="text-muted mb-1">Air Temperature</p>
+                                    </div>
+                                </div>
+                            </div> <!-- end row-->
+                        </div> <!-- end widget-rounded-circle-->
+                    </div> <!-- end col-->
+
+                    <div class="col-md-6 col-xl-3">
+                        <div class="widget-rounded-circle card-box">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="avatar-lg rounded-circle bg-soft-blue border-blue border">
+                                        <i class="mdi mdi-water-percent font-22 avatar-title text-blue"></i>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-right">
+                                        <h3 class="text-dark mt-1"><span id="humidity" data-value="0"
+                                                                         data-plugin="counterup">11</span>%</h3>
+                                        <p class="text-muted mb-1">Humidity</p>
+                                    </div>
+                                </div>
+                            </div> <!-- end row-->
+                        </div> <!-- end widget-rounded-circle-->
+                    </div> <!-- end col-->
+                </div>
+                <!-- end row-->
+
+                <div class="row" style="display: none;">
+                    <div class="col-xl-12">
+                        <div class="card-box">
+                            <h4 class="header-title mb-3">Sales Analytics</h4>
+
+                            <div id="line-chart-alt" class="flot-chart mt-4 pt-1" style="height: 369px;"></div>
+                        </div> <!-- end card-box -->
+                    </div> <!-- end col-->
+                </div>
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card-box">
+                            <h4 class="header-title mb-3">Control</h4>
+                            <form>
+                                <div class="form-group mb-3">
+                                    <label for="FanSpeed">Fan Speed</label>
+                                    <input type="number" id="FanSpeed" min="200" max="1200"
+                                           onchange="PublishEvent('Set-Fan-Speed',$(this).val());" placeholder="1100"
+                                           class="form-control Set-Fan-Speed">
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input Set-module-1" id="module_1"
+                                           onchange="PublishEvent('Set-module-1',$(this).val());">
+                                    <label class="custom-control-label" for="module_1">Module 1</label>
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input Set-module-2" id="module_2"
+                                           onchange="PublishEvent('Set-module-2',$(this).val());">
+                                    <label class="custom-control-label" for="module_2">Module 2</label>
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input Set-module-3" id="module_3"
+                                           onchange="PublishEvent('Set-module-3',$(this).val());">
+                                    <label class="custom-control-label" for="module_3">Module 3</label>
+                                </div>
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input Set-module-4" id="module_4"
+                                           onchange="PublishEvent('Set-module-4',$(this).val());">
+                                    <label class="custom-control-label" for="module_4">Module 4</label>
+                                </div>
+                            </form>
+                        </div>
+                    </div> <!-- end col -->
+
+                </div>
+                <!-- end row -->
+
+            </div> <!-- container -->
+
+        </div> <!-- content -->
+
+        <!-- Footer Start -->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        2015 - 2019 &copy; UBold theme by <a href="#">Coderthemes</a>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-md-right footer-links d-none d-sm-block">
+                            <a href="javascript:void(0);">About Us</a>
+                            <a href="javascript:void(0);">Help</a>
+                            <a href="javascript:void(0);">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end Footer -->
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- End Page content -->
+    <!-- ============================================================== -->
+
+
+</div>
+<!-- END wrapper -->
+
+
+<!-- Right bar overlay-->
+<div class="rightbar-overlay"></div>
+
+<!-- Vendor js -->
+<script src="assets/js/vendor.min.js"></script>
+
+<script type="application/javascript">
+    var speed = $('.Fan-Speed').data('speed');
+    function CheckFan(Fan) {
+        $('#' + Fan + '').text(speed);
+        $('#' + Fan + '').attr('data-speed', speed);
+        $('#' + Fan + '-icon').removeClass('mdi-fan-off');
+        $('#' + Fan + '-icon').parent().removeClass('bg-soft-danger');
+        $('#' + Fan + '-icon').parent().removeClass('border-danger');
+        $('#' + Fan + '-icon').removeClass('text-danger');
+        $('#' + Fan + '-icon').parent().addClass('border-info');
+        $('#' + Fan + '-icon').parent().addClass('bg-soft-info');
+        $('#' + Fan + '-icon').addClass('text-info');
+        $('#' + Fan + '-icon').addClass('mdi-fan');
+        $('#' + Fan + '-icon').addClass('mdi-spin');
+        if (speed <= 200) {
+            $('#' + Fan + '-icon').removeClass('mdi-spin');
+            $('#' + Fan + '-icon').removeClass('mdi-fan');
+            $('#' + Fan + '-icon').removeClass('text-info');
+            $('#' + Fan + '-icon').parent().removeClass('bg-soft-info');
+            $('#' + Fan + '-icon').parent().removeClass('border-info');
+            $('#' + Fan + '-icon').parent().addClass('border-danger');
+            $('#' + Fan + '-icon').parent().addClass('bg-soft-danger');
+            $('#' + Fan + '-icon').addClass('text-danger');
+            $('#' + Fan + '-icon').addClass('mdi-fan-off');
+        }
+
+    }
+
+    function getSensors() {
+        getEvent('Incoming-From-Sensors');
+    }
+
+    function getEvent(name) {
+        $.ajax({
+            url: 'handler/Events.php',
+            type: 'post',
+            data: {event_name: name, request: 'getEvent'},
+            success: function (res) {
+                var response = $.parseJSON(res);
+                if (name == 'Incoming-From-Sensors') {
+                    var sensorData = JSON.parse(response.event_data);
+                    for (var sensor in sensorData) {
+                        if (sensor == 'Fan') {
+                            $('.Fan-Speed').attr('data-speed',sensorData[sensor]);
+                        } else if (sensor.includes('module_')) {
+                            //console.log('Sensor: '+sensor +' ,Data: '+sensorData[sensor]);
+                            if (sensorData[sensor] == true) {
+                                $('#' + sensor).attr("checked", "checked");
+                                $('#' + sensor).val('false');
+                            } else {
+                                $('#' + sensor).removeAttr("checked");
+                                $('#' + sensor).val('true');
+                            }
+                        } else {
+                            $('.' + sensor).val(sensorData[sensor]), $('#' + sensor).text(sensorData[sensor]);
+                        }
+                    }
+                } else {
+                    $('.' + response[0].event_name).val(response[0].event_data), $('.' + response[0].event_name).text(response[0].event_data)
+                }
+            }
+        });
+    }
+
+    function getEvents() {
+        $.ajax({
+            url: 'handler/Events.php',
+            type: 'post',
+            data: {request: 'getEvents'},
+            success: function (res) {
+                var response = $.parseJSON(res);
+                console.log(response);
+                for (var prop in response) {
+                    // skip loop if the property is from prototype
+                    if (!response.hasOwnProperty(prop)) continue;
+                    if ($('.' + response[prop].event_name).is(":checkbox") && response[prop].event_data == 'true'  || response[prop].event_data == 'on') {
+                        $('.' + response[prop].event_name).attr("checked", "checked");
+                        $('.' + response[prop].event_name).val('false');
+                    } else if ($('.' + response[prop].event_name).is(":checkbox") && response[prop].event_data == 'false' || response[prop].event_data == 'off') {
+                        $('.' + response[prop].event_name).removeAttr("checked");
+                        $('.' + response[prop].event_name).val('true');
+                    } else if (response[prop].event_name == 'Incoming-From-Sensors') {
+                        var sensorData = JSON.parse(response[prop].event_data);
+                        for (var sensor in sensorData) {
+                            if (sensor == 'Fan') {
+                                $('.Fan-Speed').attr('data-speed',sensorData[sensor]);
+                                $('#FanSpeed').val(sensorData[sensor]);
+                            }
+                            $('.' + sensor).val(sensorData[sensor]),  $('#' + sensor).text(sensorData[sensor]);
+                        }
+                    } else {
+                        $('.' + response[prop].event_name).text(response[prop].event_data)
+                    }
+                }
+            }
+        });
+    }
+
+
+
+    function PublishEvent(name, data) {
+        var Data = {'name': name, 'data': data};
+        $.ajax({
+            url: 'handler/Events.php',
+            type: 'post',
+            data: {event: Data, request: 'PublishEvent'},
+            success: function (res) {
+                var response = $.parseJSON(res);
+                if (response.id.length > 1) {
+                    if (name == 'Fan') {
+                        $('.Fan-Speed').attr('data-speed',data);
+                        $('#FanSpeed').val(data);
+                        CheckFan('Fan');
+                    }
+                }
+            }
+        });
+    }
+
+    getEvents();
+    var init = setInterval(function () {
+        getSensors();
+        CheckFan('Fan');
+    }, 1000);</script>
+<!-- App js-->
+<script src="assets/js/app.min.js"></script>
+
+</body>
+
+</html>
