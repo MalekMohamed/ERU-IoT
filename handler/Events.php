@@ -31,6 +31,9 @@ Class Events extends Database
                         $this->PublishEvent($this->_Event);
                     }
                     break;
+                    case 'reset':
+                    $this->reset();
+                    break;
             }
         }
     }
@@ -64,14 +67,20 @@ Class Events extends Database
 
     }
 
-        public function getEvent($name = null)
+    public function getEvent($name = null)
     {
-        if ($name != null) {
+        if ($name == 'logs') {
+            $query = $this->connection->prepare("SELECT * FROM events WHERE id IN (SELECT MAX(id) FROM events GROUP BY event_name)");
+            $query->execute();
+            return json_encode($query->fetchAll());
+        }
+        elseif ($name != null) {
             $query = $this->connection->prepare("SELECT * FROM events WHERE event_name = ? ORDER BY id DESC");
             $query->execute(array($name));
-            echo json_encode($query->fetchAll());
-        } else {
-            $query = $this->connection->prepare("SELECT * FROM events ORDER BY id DESC");
+            echo json_encode($query->fetch());
+        } 
+        else {
+            $query = $this->connection->prepare("SELECT * FROM events WHERE id IN (SELECT MAX(id) FROM events GROUP BY event_name)");
             $query->execute();
             echo json_encode($query->fetchAll());
         }
@@ -86,7 +95,18 @@ Class Events extends Database
             'data' => $Event['data'],
         ));
     }
+    private function reset() {
+        $query = $this->connection->prepare("DELETE FROM events WHERE event_name != 'Incoming-From-Sensors'");
+            $query->execute();
+            echo 'success';
+    }
 }
 
 $Events = new Events();
+if (isset($_GET['wia']) && isset($_REQUEST['Data'])) {
+    $event['data'] = $_REQUEST['Data'];
+    $event['name'] = $_REQUEST['Event_Name'];
+    $event['id'] = $_REQUEST['Event_ID'];
+    $Events->PushEvent($event);
+}
 ?>
