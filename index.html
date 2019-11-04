@@ -364,9 +364,11 @@
             data: {event_name: name, request: 'getEvent'},
             success: function (res) {
                 var response = $.parseJSON(res);
+                console.log(response);
                 if (name == 'Incoming-From-Sensors') {
                     var sensorData = JSON.parse(response.event_data);
                     for (var sensor in sensorData) {
+                        console.log(sensor);
                         if (sensor == 'Fan') {
                             $('.Fan-Speed').attr('data-speed',sensorData[sensor]);
                         } else if (sensor.includes('module_')) {
