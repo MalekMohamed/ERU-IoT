@@ -206,9 +206,9 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="text-right">
-                                        <h3 class="text-dark mt-1"><span id="temperature" data-value="0"
+                                        <h3 class="text-dark mt-1"><span id="temperature_1" data-value="0"
                                                                          data-plugin="counterup">0.58</span>°C</h3>
-                                        <p class="text-muted mb-1">Air Temperature</p>
+                                        <p class="text-muted mb-1">Inlet Air Temperature</p>
                                     </div>
                                 </div>
                             </div> <!-- end row-->
@@ -225,9 +225,9 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="text-right">
-                                        <h3 class="text-dark mt-1"><span id="humidity" data-value="0"
+                                        <h3 class="text-dark mt-1"><span id="humidity_1" data-value="0"
                                                                          data-plugin="counterup">11</span>%</h3>
-                                        <p class="text-muted mb-1">Humidity</p>
+                                        <p class="text-muted mb-1">Inlet Humidity</p>
                                     </div>
                                 </div>
                             </div> <!-- end row-->
@@ -235,17 +235,45 @@
                     </div> <!-- end col-->
                 </div>
                 <!-- end row-->
+                <div class="row">
+                    <div class="col-md-6 col-xl-3">
+                        <div class="widget-rounded-circle card-box">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="avatar-lg rounded-circle bg-soft-warning border-warning border">
+                                        <i class=" mdi mdi-oil-temperature font-22 avatar-title text-warning"></i>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-right">
+                                        <h3 class="text-dark mt-1"><span id="temperature_2" data-value="0"
+                                                                         data-plugin="counterup">0.58</span>°C</h3>
+                                        <p class="text-muted mb-1">Outlet Air Temperature</p>
+                                    </div>
+                                </div>
+                            </div> <!-- end row-->
+                        </div> <!-- end widget-rounded-circle-->
+                    </div> <!-- end col-->
 
-                <div class="row" style="display: none;">
-                    <div class="col-xl-12">
-                        <div class="card-box">
-                            <h4 class="header-title mb-3">Sales Analytics</h4>
-
-                            <div id="line-chart-alt" class="flot-chart mt-4 pt-1" style="height: 369px;"></div>
-                        </div> <!-- end card-box -->
+                    <div class="col-md-6 col-xl-3">
+                        <div class="widget-rounded-circle card-box">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="avatar-lg rounded-circle bg-soft-blue border-blue border">
+                                        <i class="mdi mdi-water-percent font-22 avatar-title text-blue"></i>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-right">
+                                        <h3 class="text-dark mt-1"><span id="humidity_2" data-value="0"
+                                                                         data-plugin="counterup">11</span>%</h3>
+                                        <p class="text-muted mb-1">Outlet Humidity</p>
+                                    </div>
+                                </div>
+                            </div> <!-- end row-->
+                        </div> <!-- end widget-rounded-circle-->
                     </div> <!-- end col-->
                 </div>
-                <!-- end row -->
 
                 <div class="row">
                     <div class="col-xl-12">
