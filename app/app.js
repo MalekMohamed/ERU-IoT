@@ -15,12 +15,10 @@ port.on("open", () => {
     console.log('serial port open');
 });
 var pi = require('node-raspi');
-var temp = pi.getThrm();
 var str;
 parser.on('data', function (data) {
     str = JSON.stringify(data); // Convert to JSON
     str = JSON.parse(data); //Then parse it
-    str.temperature = temp;
     str.module_1 = module_1.digitalRead();
     str.module_2 = module_2.digitalRead();
     str.module_3 = module_3.digitalRead();
