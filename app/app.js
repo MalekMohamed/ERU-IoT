@@ -8,18 +8,7 @@ const in_8 = new Gpio(20, {mode: Gpio.OUTPUT}); // peltier 1/2
 const sleep = (waitTimeInMs) => new Promise(resolve => setTimeout(resolve, waitTimeInMs));
 let admin = require("firebase-admin");
 
-let serviceAccount = {
-    "type": "service_account",
-    "project_id": "erus-11c50",
-    "private_key_id": "b7ba7d8796efc6deaa0522122db153e748419454",
-    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC3CoSjHCbmKJ3s\neymB/zhccyh6aCyZTradSkBVnvYWvoZfn2gV1r/kURn/HNHOf0vh96F7lZOo6VXk\nvNMh6a11t73X6+pwjyc5jBH96sXy3362LI990wVnl4zfnDVoNDCsybx3rQOL+e94\noIXQzEkwkXQ2iRhdvmJB7l326L7FeN+PftiA3kTDuVkEdWw+vFCofT8ed2kJUoLF\nF0ez8l4IhHKta5ajc40YVX59n37jqdRUOiQXmthZKTOqXxuqlkjGYjWP3Z5yjXWa\nc96jagybdac6ATjbs/QucOJkp51j/+W2DegLyshnLctQQ+JLrnUkmS5tPBNpcEoX\nMzBYnVAlAgMBAAECggEADe3Zupzjk+u+2tZjif49UIG98JS5YiBEktMp8qoSYZg1\nmxTDI7hQKYSHdSvBBpUW1fcVfZVcI4RAMlQxP/krp1PoeUQ9drvaGQ3A98D0N9+M\nobnh4IoctO2qPYECam/gTWHbuwK6TJ5kPBqBHGrTXgQPoy/LICUjDo/gbC/5hobj\nKBdIezmn5B1UQAEUSlvQegou35Iec7TPDFf/oxDN0OGP8vKKDpuIeWHpdfuVcSp+\nIn8HkJ3qjYI75ScuztsITSt18JRcZ4hG9TSNXsa4Uwsh0hTGWxIfX98iNoGrwLNC\nMrFwmDKYbUUaAqUfTXprpYXCZzxN83Ar8ZOurtif8QKBgQD9QBHf2chTEheiq59K\nVs82gSE07pVeMcJ63LJxTMkPWMHIAIBnC7fHdCXJ27MBtnQO5Nd18WShWj8nNEig\nMFYM9hXqwsJSwT2Qa4DqSfTNSqEYUgLb22lGUJLRa02l1CzxvJZsfwaShLY/5pZX\nEcm0J7htVOzHv8Nv5fKHHzjB9QKBgQC5B0vIPACffITBe0aBnZf6c5p2bk0+6dKy\nWBz5qfwASC5Q+Wb+7Gl4ufGT3PcAuZCciavZbTDHIwLE+dmoP7qjDi1BzastT2ot\nWwQe7KULR0JjPQSxbDdN99CWbVo128R7obWhKxmEG2Q3ic3ij309G9xoZTsz6OiY\nPr8C8voHcQKBgDIuUdxjUPh0604GZ8fZL7IDIEtWwy4o+fpSZOFib6ykz7ELuGWy\nwrW45Av9hpjeSFzzJ2ZtcJ0wPrdL+uAS89oZoPoloU+4jrRhOOgzw1gyY31oMrzR\n2yhdqtnoQziKtGUqEzxoZyr9NQewbzXNhoQ2Iqs3Wrux2c4AaHAx1ZNJAoGBAJy4\nN1IUsJplx7RyDBhBObcjL9PcPYVqW9I/m9tERXSfrstbVAfcisF9DcemQ3jTtE9C\ntNJnEAe7+d6JmfhOcnEl0uOHptOsDkz4aJcg7fKNmwefaVg2Rum9W2numZhA2z20\njLlEXkptQQdhq4eY7gVSke/CvtCLGGfLzdJbp7ehAoGBAOlN24rODTpUN/Dtc75H\ncI+SJlvE361wURZqNyFks/3G/fiHtWIj73GwtDA0fcVyJQIGEYauXD38xJxTthqN\njtEQACAnw+ZkUFUxFGMLnwwvV3jIjXMr8+zdzzXcSuAHiSCM5v6cvaZcyjEsG0kS\nRDMbQEGTN0GBqmETbfS5Xpk0\n-----END PRIVATE KEY-----\n",
-    "client_email": "firebase-adminsdk-3j52f@erus-11c50.iam.gserviceaccount.com",
-    "client_id": "106802816373413352676",
-    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-    "token_uri": "https://oauth2.googleapis.com/token",
-    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-3j52f%40erus-11c50.iam.gserviceaccount.com"
-};
+// contact the ower for service Account
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
