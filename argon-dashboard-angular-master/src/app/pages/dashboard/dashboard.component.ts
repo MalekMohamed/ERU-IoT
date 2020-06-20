@@ -18,7 +18,11 @@ export class DashboardComponent {
     }
 
     setData(docName, Data) {
-        this.eventsService.setDocData(docName,Data);
+        if (this.eventsService.deviceIsOnline) {
+            this.eventsService.setDocData(docName, Data);
+        } else {
+            this.eventsService.toastrService.error('Device is offline');
+        }
     }
 }
 
