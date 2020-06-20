@@ -1,0 +1,177 @@
+<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Inlet Fan Speed</h5>
+                  <span class="h2 font-weight-bold mb-0">{{events.Fan}}</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                    <i class="fas fa-fan fa-spin" [ngClass]="{'fa-spin' : events.Fan > 200}"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Ambient Temperature</h5>
+                  <span class="h2 font-weight-bold mb-0">{{events.Temperature_1}}</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                    <i class="fas fa-temperature-high"></i>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Outside Humidity</h5>
+                  <span class="h2 font-weight-bold mb-0">{{events.Humidity_1}}</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                    <i class="fas fa-percent"></i>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Inside Temperature</h5>
+                  <span class="h2 font-weight-bold mb-0">{{events.Temperature_2}}</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                    <i class="fas fa-temperature-high"></i>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 mt-5" >
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Outside Humidity</h5>
+                  <span class="h2 font-weight-bold mb-0">{{events.Humidity_2}}</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-primary text-white rounded-circle shadow">
+                    <i class="fas fa-percent"></i>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-lg-6 mt-5" >
+          <div class="card card-stats mb-4 mb-xl-0">
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">Dew Point</h5>
+                  <span class="h2 font-weight-bold mb-0">{{events.DT}}</span>
+                </div>
+                <div class="col-auto">
+                  <div class="icon icon-shape bg-blue text-white rounded-circle shadow">
+                    <i class="fas fa-burn"></i>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">
+
+  <div class="row mt-5">
+    <div class="col-xl-12 mb-5">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="card-box">
+                <h4 class="header-title mb-3">Control</h4>
+                <form>
+                  <div class="form-group mb-3">
+                    <label for="FanSpeed">Fan Speed</label>
+                    <input type="number" (change)="setData('Set-Fan-Speed',$event.target.valueAsNumber)" id="FanSpeed" min="200" max="1200" placeholder="1100" class="form-control Set-Fan-Speed">
+                  </div>
+                  <label class="custom-toggle">
+                    <input (change)="setData('Set-module-1_2',$event.target.checked)" [checked]="events.in_8" type="checkbox">
+                    <span class="custom-toggle-slider rounded-circle"></span>
+                  </label>
+                  <label class="position-absolute ml-3">Peltier 1 & 2</label>
+                  <span class="clearfix"></span>
+
+                  <label class="custom-toggle">
+                    <input (change)="setData('Set-module-3_4',$event.target.checked)" [checked]="events.in_7" type="checkbox">
+                    <span class="custom-toggle-slider rounded-circle"></span>
+                  </label>
+                  <label class="position-absolute ml-3">Peltier 3 & 4</label>
+                  <span class="clearfix"></span>
+
+                  <label class="custom-toggle">
+                    <input (change)="setData('Set-module-5_6',$event.target.checked)" [checked]="events.in_6" type="checkbox">
+                    <span class="custom-toggle-slider rounded-circle"></span>
+                  </label>
+                  <label class="position-absolute ml-3">Peltier 5 & 6</label>
+                  <span class="clearfix"></span>
+
+                  <label class="custom-toggle">
+                    <input (change)="setData('Set-module-7_8',$event.target.checked)" [checked]="events.in_2" type="checkbox">
+                    <span class="custom-toggle-slider rounded-circle"></span>
+                  </label>
+                  <label class="position-absolute ml-3">Peltier 7 & 8</label>
+                  <span class="clearfix"></span>
+
+                  <label class="custom-toggle">
+                    <input (change)="setData('Set-module-9_10',$event.target.checked)" [checked]="events.in_1" type="checkbox">
+                    <span class="custom-toggle-slider rounded-circle"></span>
+                  </label>
+                  <label class="position-absolute ml-3">Peltier 9 & 10</label>
+                  <span class="clearfix"></span>
+                </form>
+              </div>
+            </div> <!-- end col -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
